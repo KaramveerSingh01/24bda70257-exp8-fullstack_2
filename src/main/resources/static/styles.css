@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1F2937;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: #6B7280;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card span {
+  display: block;
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+.card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 1.9rem;
+}
+
+.card.green strong { color: #10B981; }
+.card.yellow strong { color: #F59E0B; }
+.card.red strong { color: #EF4444; }
+
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin-bottom: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+  font-size: 1rem;
+}
+
+button {
+  background: #2563EB;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #1D4ED8;
+}
+
+.message {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: #0F766E;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+th {
+  color: #6B7280;
+  font-size: 0.8rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status.SUCCEEDED { background: #D1FAE5; color: #065F46; }
+.status.RETRYING { background: #FEF3C7; color: #92400E; }
+.status.DLQ { background: #FEE2E2; color: #991B1B; }
+.status.QUEUED { background: #E0F2FE; color: #075985; }
+
+.dlq-box {
+  display: grid;
+  gap: 10px;
+}
+
+.dlq-item {
+  border: 1px solid #FECACA;
+  background: #FFF1F2;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dlq-item button {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+.empty {
+  color: #6B7280;
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Reliability Lab</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Event Reliability Lab</h1>
+      <p>Retry, DLQ, and idempotency demo</p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <span>Published</span>
+        <strong id="published">0</strong>
+      </div>
+      <div class="card green">
+        <span>Processed</span>
+        <strong id="processed">0</strong>
+      </div>
+      <div class="card yellow">
+        <span>Retries</span>
+        <strong id="retries">0</strong>
+      </div>
+      <div class="card red">
+        <span>DLQ</span>
+        <strong id="deadLetters">0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Send Event</h2>
+      <form id="eventForm">
+        <label>Event ID</label>
+        <input id="eventId" type="text" placeholder="Optional, generated automatically" />
+
+        <label>Message</label>
+        <input id="message" type="text" placeholder="Enter event message" required />
+
+        <label>Fail Attempts</label>
+        <select id="failAttempts">
+          <option value="0">0 fails</option>
+          <option value="1">1 fail</option>
+          <option value="2">2 fails</option>
+          <option value="3">3 fails</option>
+          <option value="4">4 fails (DLQ)</option>
+        </select>
+
+        <button type="submit">Publish Event</button>
+      </form>
+      <p id="messageBox" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Recent Events</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Message</th>
+            <th>Attempts</th>
+            <th>Status</th>
+            <th>Retry Count</th>
+          </tr>
+        </thead>
+        <tbody id="eventsBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Dead Letter Queue</h2>
+      <div id="dlqBox" class="dlq-box"></div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
